@@ -24,6 +24,10 @@ main{
 ul{
     margin: 50px auto;
     // list-style-type: none;
+    li{
+        display: flex;
+        flex-direction: column;
+    }
 }
 // FOOTER---------
 footer{

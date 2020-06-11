@@ -10,12 +10,12 @@ Route::get('/lunga', function () {
     $cards = config('pasta');
     $collection = collect($cards);
     $tipoPasta = [];
-    $tipoPasta = $collection -> where('tipo', 'lunga');
+    $tipoPasta = $collection -> where('tipo', 'lunga')-> map(function($item, $key){
+        $item['id']= $key;
+        return $item;
+    });
 
     $titolo = "Lunga";
-    // -> map(function($item, $key){
-    //     $item['id']= $key;
-    // });
 
     return view('tipoPasta', compact('cards', 'tipoPasta', 'titolo'));
 })->name('lunga');
@@ -23,12 +23,12 @@ Route::get('/corta', function () {
     $cards = config('pasta');
     $collection = collect($cards);
     $tipoPasta = [];
-    $tipoPasta = $collection -> where('tipo', 'corta');
-    $titolo = "Corta";
+    $tipoPasta = $collection -> where('tipo', 'corta')-> map(function($item, $key){
+        $item['id']= $key;
+        return $item;
+    });
 
-    // -> map(function($item, $key){
-    //     $item['id']= $key;
-    // });
+    $titolo = "Corta";
 
     return view('tipoPasta', compact('cards', 'tipoPasta', 'titolo'));
 })->name('corta');
@@ -36,7 +36,10 @@ Route::get('/cortissima', function () {
     $cards = config('pasta');
     $collection = collect($cards);
     $tipoPasta = [];
-    $tipoPasta = $collection -> where('tipo', 'cortissima');
+    $tipoPasta = $collection -> where('tipo', 'cortissima')-> map(function($item, $key){
+        $item['id']= $key;
+        return $item;
+    });
     $titolo = "Cortissima";
 
     // -> map(function($item, $key){
@@ -45,16 +48,17 @@ Route::get('/cortissima', function () {
 
     return view('tipoPasta', compact('cards', 'tipoPasta', 'titolo'));
 })->name('cortissima');
-Route::get('/infoPasta', function () {
+Route::get('/infoPasta/{id}', function ($id) {
+
     $cards = config('pasta');
     $collection = collect($cards);
-    $tipoPasta = [];
-    $tipoPasta = $collection -> where('tipo', 'lunga') -> map(function($item, $key){
+    $card = $collection -> map(function($item, $key){
         $item['id']= $key;
-    });
+        return $item;
+    })-> where('id', $id)->first();
 ;
-    $titolo = "lunga";
+    $titolo = "dettagli";
 
 
-    return view('infoPasta', compact('cards', 'tipoPasta', 'titolo'));
+    return view('infoPasta', compact('cards', 'card', 'titolo'));
 })->name('infoPasta');
