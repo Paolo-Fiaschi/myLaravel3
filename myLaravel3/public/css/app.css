@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  background-color: #F8F9FA;
+}
+
+main {
+  width: 100%;
+}
+
+ul {
+  margin: 50px auto;
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: #bdb5b5;
+}
+

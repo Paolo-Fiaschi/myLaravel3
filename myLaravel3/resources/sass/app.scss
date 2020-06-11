@@ -1,0 +1,36 @@
+//
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    cursor: pointer;
+}
+header{
+    width: 100%;
+    background-color: #F8F9FA;
+}
+// MAIN
+main{
+    width: 100%;
+    // height: calc(100vh - 150px);
+    // display: flex;
+    // justify-content: center;
+    // align-items: ;
+    // flex-direction: column;
+}
+ul{
+    margin: 50px auto;
+    // list-style-type: none;
+}
+// FOOTER---------
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: #bdb5b5;
+    // color: white;
+
+}
+
